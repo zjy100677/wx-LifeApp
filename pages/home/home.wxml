@@ -1,0 +1,49 @@
+<!--pages/home/home.wxml-->
+<swiper class="banner">
+  <swiper-item class="">
+    <image class="" src="/static/images/banner-01.png" mode="aspectFill"></image>
+  </swiper-item>
+  <swiper-item class="">
+    <image class="" src="/static/images/banner-02.png" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+<view class="nav">
+  <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+   <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+  <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+    <view class="nav-item">
+    <image class="" src="/static/icons/grid-01.png" mode="aspectFil"></image>
+    <text>美食</text>
+ </view>
+  
+  
+</view>

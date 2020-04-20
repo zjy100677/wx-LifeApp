@@ -1,0 +1,9 @@
+<!--pages/template/template.wxml-->
+<template name="slider" >
+  <swiper class="banner">
+    <swiper-item class="" wx:for="{{sliders}}" wx:key="id">
+      <image class="" src="{{item.image}}" mode="aspectFill"></image>
+    </swiper-item>
+   </swiper>
+</template>
+

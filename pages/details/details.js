@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/details/details.js
 import reqData from "../config/config.js"
 Page({
 
@@ -6,30 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //轮播图数据
     sliders:[],
-    //九宫格
-    nav:[]
+    name:"",
+    address:"",
+    phone:"",
+    businessHours:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     reqData("slides").then(res=>{
-       this.setData({
-         sliders:res.data
-       })
-     })
-     reqData("categories").then(res=>{
+    reqData(`/shops/1`).then(res=>{
+      console.log(res)
       this.setData({
-        nav:res.data
+        sliders:res.data.images,
+        name:res.data.name,
+        address:res.data.address,
+        phone:res.data.phone,
+        businessHours:res.data.businessHours
       })
-    })
-  },
-  toDetails(e){
-    wx.navigateTo({
-      url:`../list/list?id=${e.currentTarget.dataset.id}`
     })
   },
 

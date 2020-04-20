@@ -1,15 +1,14 @@
-/* pages/home/home.wxss */
-.banner{
-  width: 100%;
- height: 380rpx;
-}
-.banner image{
-  width: 100%;
-  height: 100%;
-}
+
+@import "../../template/template.wxss";
 .nav{
+  width: 750rpx;
   display: flex;
   flex-wrap:wrap;
+  background-color: #fff;
+  border-left:1rpx solid #ebebeb;
+  border-bottom:1rpx solid #ebebeb;
+  margin-bottom: 20rpx;
+  
 }
 .nav image{
   width: 100rpx;
@@ -23,4 +22,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  border-top:1rpx solid #ebebeb;
+  border-right:1rpx solid #ebebeb
+}
+
+.link{
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  height: 250rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.link image{
+  width: 350rpx;
+  height: 200rpx;
 }

@@ -1,0 +1,19 @@
+<!--pages/details/details.wxml-->
+<view class="search-wrap">
+  <input type="text" placeholder="搜索" class="search"/>
+  <icon class="" type="search" class="search-image"></icon>
+</view>
+
+  <view class="list" wx:for="{{list}}" wx:key="index" bind:tap="toDetails" data-id="{{item.id}}"> 
+    <image class="" src="{{item.images[0]}}"></image>
+    <view class="des">
+      <text class="title">{{item.name}}</text>
+      <text class="desInfo">电话：{{item.phone}}</text>
+      <text class="desInfo">地址：{{item.address}}</text>
+      <text class="desInfo">营业时间：{{item.businessHours}}</text>
+    </view>
+    <view class="count" wx:if="{{item.score}}">{{item.score}}</view>
+    <view class="count" wx:else>0</view>
+  </view>
+
+<view class="more" wx:if="{{list}}">加载更多..</view>

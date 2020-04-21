@@ -1,7 +1,7 @@
 <!--pages/details/details.wxml-->
 <view class="search-wrap">
-  <input type="text" placeholder="搜索" class="search"/>
-  <icon class="" type="search" class="search-image"></icon>
+  <input type="text" placeholder="搜索" class="search" bind:input="inputHandle" bind:confirm="searchHandle" value="{{inputText}}"/>
+  <icon class="" type="search" class="search-image" bind:tap="searchHandle"></icon>
 </view>
 
   <view class="list" wx:for="{{list}}" wx:key="index" bind:tap="toDetails" data-id="{{item.id}}"> 
@@ -16,4 +16,4 @@
     <view class="count" wx:else>0</view>
   </view>
 
-<view class="more" wx:if="{{list}}">加载更多..</view>
+<view class="more" wx:if="{{showMore}}">加载更多..</view>

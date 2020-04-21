@@ -10,7 +10,9 @@ Page({
     limit:20,
     list:[],
     id:"",
-    isLoading:true
+    isLoading:true,
+    showMore:false,
+    inputText:""
   },
 
   /**
@@ -23,13 +25,16 @@ Page({
     this.setData({
       id:options.id
     })
+ 
     let {page,limit} = this.data
     reqData(`/categories/${this.data.id}/shops?page=${page}&_limit=${limit}`).then(res=>{
       this.setData({
-        list:res.data
+        list:res.data,
+        showMore:true
       })
       wx.hideLoading()
     })
+   
   },
 
   /*
@@ -68,7 +73,8 @@ Page({
     let {page,limit} = this.data
     reqData(`/categories/${this.data.id}/shops?page=${page}&_limit=${limit}`).then(res=>{
        this.setData({
-         list:res.data
+         list:res.data,
+         inputText:""
        })
        wx.hideLoading()
        wx.stopPullDownRefresh()
@@ -78,5 +84,32 @@ Page({
     wx.navigateTo({
       url: `../details/details?id=${e.currentTarget.dataset.id}`,
     });
+  },
+  //输入文本框
+  inputHandle(e){
+    this.setData({
+      inputText:e.detail.value
+    })
+  },
+  //搜索
+  searchHandle(){
+    let {id,page,inputText} = this.data
+    wx.showLoading({
+      title:"正在搜索"
+    })
+    reqData(`/categories/${id}/shops?page=${page}&_limit=10&q=${inputText}`)
+    .then(res=>{
+     this.setData({
+       list:res.data
+     })
+     wx.hideLoading()
+    })
+  },
+  onReady(options){
+    reqData(`/categories/${this.data.id}`).then(res=>{
+      wx.setNavigationBarTitle({
+        title:res.data.name
+      })
+     })
   }
 })

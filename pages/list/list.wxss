@@ -15,6 +15,7 @@ border-radius: 10rpx;
 }
 .search-image{
   position: absolute;
+  z-index: 5;
   top:7rpx;
   right: 45rpx;
 }

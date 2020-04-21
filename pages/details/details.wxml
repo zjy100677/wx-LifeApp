@@ -1,12 +1,36 @@
 <!--pages/details/details.wxml-->
  <swiper class="banner" indicator-dots="true">
-    <swiper-item class="" wx:for="{{sliders}}" wx:key="id">
+    <swiper-item class="" wx:for="{{sliders}}" wx:key="id" bind:tap="tap" data-url="{{item}}">
       <image class="" src="{{item}}" mode="aspectFill"></image>
     </swiper-item>
 </swiper>
-<view class="info">
-  <text>{{name}}</text>
+<view class="info" wx:if="{{isShow}}">
+  <text class="title">{{name}}</text>
   <text>电话：{{phone}}</text>
   <text>地址：{{address}}</text>
   <text>营业时间：{{businessHours}}</text>
 </view>
+<view class="discuss" wx:for="{{comments}}" wx:key="id">
+  <text class="percentage">{{item.rating}}</text>
+  <view class="user" >
+    <text class="username">{{item.name}}</text>
+    <text class="time">{{item.date}}</text>
+  </view>
+  <text class="content" >{{item.content}}</text>
+  <view class="image" data-id="{{index}}"  capture-bind:tap="getId">
+    <image src="{{util.size(item)}}" 
+     wx:for="{{item.images}}" 
+     wx:key="index"
+     capture-bind:tap="thumbnail" 
+     data-item="{{item}}"
+     ></image>
+  </view>
+</view>
+
+<wxs module="util">
+  module.exports = {
+    size:function(input){
+      return input.replace("w.h","100.100")
+    }
+  }
+</wxs>

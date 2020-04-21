@@ -10,71 +10,47 @@ Page({
     name:"",
     address:"",
     phone:"",
-    businessHours:""
+    businessHours:"",
+    comments:[],
+    isShow:false,
+    id:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    reqData(`/shops/1`).then(res=>{
-      console.log(res)
-      this.setData({
+    reqData(`/shops/${options.id}`).then(res=>{
+        this.setData({
         sliders:res.data.images,
         name:res.data.name,
         address:res.data.address,
         phone:res.data.phone,
-        businessHours:res.data.businessHours
+        businessHours:res.data.businessHours,
+        comments:res.data.comments,
+        isShow:true
       })
+      console.log(res.data)
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  tap(e){
+    wx.previewImage({
+      current:e.currentTarget.dataset.url, // 当前显示图片的http链接
+      urls: this.data.sliders // 需要预览的图片http链接列表
+     
+    })
+    console.log(e.currentTarget.dataset.url)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  thumbnail(e){
+    wx.previewImage({
+      current:e.currentTarget.dataset.item.replace("w.h/",""),
+      urls:this.data.comments[this.data.id].images
+    })
+   console.log(this.data.comments[this.data.id].images)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getId(e){
+    this.setData({
+      id:e.currentTarget.dataset.id
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -13,7 +13,7 @@
  </view>
   
 </view>
- <view class="link">
+ <view class="link" wx:if="{{isShowStatic}}">
    <image src="/static/images/link-01.png"></image>
    <image src="/static/images/link-02.png"></image>
 </view>

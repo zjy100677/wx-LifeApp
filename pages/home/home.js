@@ -9,7 +9,8 @@ Page({
     //轮播图数据
     sliders:[],
     //九宫格
-    nav:[]
+    nav:[],
+    isShowStatic:false
   },
 
   /**
@@ -23,7 +24,8 @@ Page({
      })
      reqData("categories").then(res=>{
       this.setData({
-        nav:res.data
+        nav:res.data,
+        isShowStatic:true
       })
     })
   },
